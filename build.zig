@@ -5,7 +5,7 @@ pub const Ast = struct {};
 
 pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
-    const optimize = b.standardOptimizeOption(.{});
+    const optimize = b.standardOptimizeOption(.{}) orelse .debug;
 
     const tsan = b.option(
         bool,
